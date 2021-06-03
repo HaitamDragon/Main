@@ -14,15 +14,15 @@ int moves = 9;
 
 
 
-std::string board[7][8] =
+char board[7][8] =
 {
-	{	{"0"}, {"0"}, {"0"}, {"0"}, {"0"}, {"0"},	},
-	{	{"0"}, {"1"}, {"0"}, {"2"}, {"0"}, {"3"},	},
-	{	{"0"}, {"0"}, {"0"}, {"0"}, {"0"}, {"0"},	},
-	{	{"0"}, {"4"}, {"0"}, {"5"}, {"0"}, {"6"},	},
-	{	{"0"}, {"0"}, {"0"}, {"0"}, {"0"}, {"0"},	},
-	{	{"0"}, {"7"}, {"0"}, {"8"}, {"0"}, {"9"},	},
-	{	{"0"}, {"0"}, {"0"}, {"0"}, {"0"}, {"0"},	}
+	{	{'0'}, {'0'}, {'0'}, {'0'}, {'0'}, {'0'}, {'0'}	},
+	{	{'0'}, {'1'}, {'0'}, {'2'}, {'0'}, {'3'}, {'0'}	},
+	{	{'0'}, {'0'}, {'0'}, {'0'}, {'0'}, {'0'}, {'0'}	},
+	{	{'0'}, {'4'}, {'0'}, {'5'}, {'0'}, {'6'}, {'0'}	},
+	{	{'0'}, {'0'}, {'0'}, {'0'}, {'0'}, {'0'}, {'0'}	},
+	{	{'0'}, {'7'}, {'0'}, {'8'}, {'0'}, {'9'}, {'0'}	},
+	{	{'0'}, {'0'}, {'0'}, {'0'}, {'0'}, {'0'}, {'0'}	}
 
 };
 
@@ -34,11 +34,22 @@ void Draw()
 	{
 		for (int j = 0; j < 7; j++)
 		{
-			if (board[i][j] == "0")
+			if (board[i][j] == '0')
 			{
 				cout << '*';
 			}
+			//thanks to hostilenode for providing a simple fix for the X and Y output
 
+			else if (board[i][j] == 'X')
+			{
+				cout << 'X';
+				
+			}
+
+			else if (board[i][j] == 'O')
+			{
+				cout << 'O';
+			}
 			else
 			{
 				cout << " ";
@@ -137,7 +148,7 @@ void Player::Choices()
 	{
 	case 1:
 		makeAMove();
-		Draw();
+		//Draw();
 		break;
 
 	case 2:
@@ -153,53 +164,135 @@ void Player::Choices()
 
 void Player::makeAMove()
 {
-	
+
 
 	int res;
 
 	using namespace std;
 
-	cout << "Where do you want to place it? (choose either : 1, 2, 3, 4, 5, 6, 7, 8, 9)" << endl;
+	//yes i know this is a bad practice but for now i am using this as a temporary solution to reprompt the user.
+	jump:
+		cout << "Where do you want to place it? (choose either : 1, 2, 3, 4, 5, 6, 7, 8, 9)" << endl;
+
 
 	cin >> res;
+
 	if (g_player1Turn)
 	{
 		switch (res)
 		{
 		case 1:
-			board[1][1] = 'X';
+			if (board[1][1] != 'X' && board[1][1] != 'Y')
+			{
+				board[1][1] = 'X';
+			}
+			else
+			{
+				cout << "Already full ! " << std::endl;
+				goto jump;
+			}
 			break;
 
 		case 2:
-			board[1][3] = 'X';
+			if (board[1][3] != 'X' && board[1][1] != 'Y')
+			{
+				board[1][3] = 'X';
+			}
+			else
+			{
+				cout << "Already full ! " << std::endl;
+				goto jump;
+			}
+			
 			break;
 
 		case 3:
-			board[1][5] = 'X';
+			if (board[1][5] != 'X' && board[1][1] != 'Y')
+			{
+				board[1][5] = 'X';
+			}
+			else
+			{
+				cout << "Already full ! " << std::endl;
+				goto jump;
+			}
+			
 			break;
 
 		case 4:
-			board[3][1] = 'X';
+			if (board[3][1] != 'X' && board[1][1] != 'Y')
+			{
+				board[3][1] = 'X';
+			}
+			else
+			{
+				cout << "Already full ! " << std::endl;
+				goto jump;
+			}
+
 			break;
 
 		case 5:
-			board[3][3] = 'X';
+			if (board[3][3] != 'X' && board[1][1] != 'Y')
+			{
+				board[3][3] = 'X';
+			}
+			else
+			{
+				cout << "Already full ! " << std::endl;
+				goto jump;
+			}
+			
 			break;
 		case 6:
-
-			board[3][5] = 'X';
+			if (board[3][5] != 'X' && board[1][1] != 'Y')
+			{
+				board[3][5] = 'X';
+			}
+			else
+			{
+				cout << "Already full ! " << std::endl;
+				goto jump;
+			}
 			break;
 
 		case 7:
-			board[5][1] = 'X';
+			if (board[5][1] != 'X' && board[1][1] != 'Y')
+			{
+				board[5][1] = 'X';
+			}
+			else
+			{
+				cout << "Already full ! " << std::endl;
+				goto jump;
+			}
+			
 			break;
 
 		case 8:
-			board[5][3] = 'X';
+			if (board[5][3] != 'X' && board[1][1] != 'Y')
+			{
+				board[5][3] = 'X';
+			}
+			else
+			{
+				cout << "Already full ! " << std::endl;
+				goto jump;
+			}
+			
 			break;
 
 		case 9:
-			board[5][5] = 'X';
+			if (board[5][5] != 'X' && board[1][1] != 'Y')
+			{
+				board[5][5] = 'X';
+			}
+			else
+			{
+				cout << "Already full ! " << std::endl;
+				goto jump;
+			}
+			
 			break;
 
 		default:
@@ -213,39 +306,117 @@ void Player::makeAMove()
 		switch (res)
 		{
 		case 1:
-			board[1][1] = 'Y';
+			if (board[1][1] != 'X' && board[1][1] != 'Y')
+			{
+				board[1][1] = 'Y';
+			}
+			else
+			{
+				cout << "Already full ! " << std::endl;
+				goto jump;
+			}
 			break;
 
 		case 2:
-			board[1][3] = 'Y';
+			if (board[1][3] != 'X' && board[1][1] != 'Y')
+			{
+				board[1][3] = 'Y';
+			}
+			else
+			{
+				cout << "Already full ! " << std::endl;
+				goto jump;
+			}
+
 			break;
 
 		case 3:
-			board[1][5] = 'Y';
+			if (board[1][5] != 'X' && board[1][1] != 'Y')
+			{
+				board[1][5] = 'Y';
+			}
+			else
+			{
+				cout << "Already full ! " << std::endl;
+				goto jump;
+			}
+
 			break;
 
 		case 4:
-			board[3][1] = 'Y';
+			if (board[3][1] != 'X' && board[1][1] != 'Y')
+			{
+				board[3][1] = 'Y';
+			}
+			else
+			{
+				cout << "Already full ! " << std::endl;
+				goto jump;
+			}
+
 			break;
 
 		case 5:
-			board[3][3] = 'Y';
+			if (board[3][3] != 'X' && board[1][1] != 'Y')
+			{
+				board[3][3] = 'Y';
+			}
+			else
+			{
+				cout << "Already full ! " << std::endl;
+				goto jump;
+			}
+
 			break;
 		case 6:
-
-			board[3][5] = 'Y';
+			if (board[3][5] != 'X' && board[1][1] != 'Y')
+			{
+				board[3][5] = 'Y';
+			}
+			else
+			{
+				cout << "Already full ! " << std::endl;
+				goto jump;
+			}
 			break;
 
 		case 7:
-			board[5][1] = 'Y';
+			if (board[5][1] != 'X' && board[1][1] != 'Y')
+			{
+				board[5][1] = 'Y';
+			}
+			else
+			{
+				cout << "Already full ! " << std::endl;
+				goto jump;
+			}
+
 			break;
 
 		case 8:
-			board[5][3] = 'Y';
+			if (board[5][3] != 'X' && board[1][1] != 'Y')
+			{
+				board[5][3] = 'Y';
+			}
+			else
+			{
+				cout << "Already full ! " << std::endl;
+				goto jump;
+			}
+
 			break;
 
 		case 9:
-			board[5][5] = 'Y';
+			if (board[5][5] != 'X' && board[1][1] != 'Y')
+			{
+				board[5][5] = 'Y';
+			}
+			else
+			{
+				cout << "Already full ! " << std::endl;
+				goto jump;
+			}
+
 			break;
 
 		default:
@@ -254,4 +425,25 @@ void Player::makeAMove()
 		}
 	}
 
+
+	//thanks to a akhnos for telling me that i need to clear the screen and redraw the board.
+	system("cls");
+	Draw();
+
 }
+/*
+void Player::checkWinCondition()
+{
+	if (g_player2Turn)
+	{
+		if (board[1][1] == 'X' && board[][] == 'X' && board[][] == 'X')
+		{
+
+		}
+	}
+
+		
+
+	
+}
+*/
