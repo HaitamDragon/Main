@@ -137,10 +137,10 @@ void Player::Choices()
 	using namespace std;
 
 
-	
-	cout << "Choose one of the following :" << endl;
-	cout << "1. Place" << endl;
-	cout << "2. Surrender" << endl;
+	jump:
+		cout << "Choose one of the following :" << endl;
+		cout << "1. Place" << endl;
+		cout << "2. Surrender" << endl;
 
 	cin >> g_UserChoiceResponse;
 
@@ -157,6 +157,7 @@ void Player::Choices()
 
 	default:
 		cout << "Error, unknown command." << endl;
+		goto jump;
 		break;
 
 	}
@@ -177,14 +178,17 @@ void Player::makeAMove()
 
 	cin >> res;
 
+	//WARNING : incoming trillions of ifs and goto statements
+
 	if (g_player1Turn)
 	{
 		switch (res)
 		{
 		case 1:
-			if (board[1][1] != 'X' && board[1][1] != 'Y')
+			if (board[1][1] != 'X' && board[1][1] != 'O')
 			{
 				board[1][1] = 'X';
+				moves--;
 			}
 			else
 			{
@@ -194,9 +198,10 @@ void Player::makeAMove()
 			break;
 
 		case 2:
-			if (board[1][3] != 'X' && board[1][1] != 'Y')
+			if (board[1][3] != 'X' && board[1][3] != 'O')
 			{
 				board[1][3] = 'X';
+				moves--;
 			}
 			else
 			{
@@ -207,9 +212,10 @@ void Player::makeAMove()
 			break;
 
 		case 3:
-			if (board[1][5] != 'X' && board[1][1] != 'Y')
+			if (board[1][5] != 'X' && board[1][5] != 'O')
 			{
 				board[1][5] = 'X';
+				moves--;
 			}
 			else
 			{
@@ -220,9 +226,10 @@ void Player::makeAMove()
 			break;
 
 		case 4:
-			if (board[3][1] != 'X' && board[1][1] != 'Y')
+			if (board[3][1] != 'X' && board[3][1] != 'O')
 			{
 				board[3][1] = 'X';
+				moves--;
 			}
 			else
 			{
@@ -233,9 +240,10 @@ void Player::makeAMove()
 			break;
 
 		case 5:
-			if (board[3][3] != 'X' && board[1][1] != 'Y')
+			if (board[3][3] != 'X' && board[3][3] != 'O')
 			{
 				board[3][3] = 'X';
+				moves--;
 			}
 			else
 			{
@@ -245,9 +253,10 @@ void Player::makeAMove()
 			
 			break;
 		case 6:
-			if (board[3][5] != 'X' && board[1][1] != 'Y')
+			if (board[3][5] != 'X' && board[3][5] != 'O')
 			{
 				board[3][5] = 'X';
+				moves--;
 			}
 			else
 			{
@@ -257,9 +266,10 @@ void Player::makeAMove()
 			break;
 
 		case 7:
-			if (board[5][1] != 'X' && board[1][1] != 'Y')
+			if (board[5][1] != 'X' && board[5][1] != 'O')
 			{
 				board[5][1] = 'X';
+				moves--;
 			}
 			else
 			{
@@ -270,9 +280,10 @@ void Player::makeAMove()
 			break;
 
 		case 8:
-			if (board[5][3] != 'X' && board[1][1] != 'Y')
+			if (board[5][3] != 'X' && board[5][3] != 'O')
 			{
 				board[5][3] = 'X';
+				moves--;
 			}
 			else
 			{
@@ -283,9 +294,10 @@ void Player::makeAMove()
 			break;
 
 		case 9:
-			if (board[5][5] != 'X' && board[1][1] != 'Y')
+			if (board[5][5] != 'X' && board[5][5] != 'O')
 			{
 				board[5][5] = 'X';
+				moves--;
 			}
 			else
 			{
@@ -297,6 +309,7 @@ void Player::makeAMove()
 
 		default:
 			cout << "Error, unknown command." << endl;
+			goto jump;
 			break;
 		}
 	}
@@ -306,9 +319,10 @@ void Player::makeAMove()
 		switch (res)
 		{
 		case 1:
-			if (board[1][1] != 'X' && board[1][1] != 'Y')
+			if (board[1][1] != 'X' && board[1][1] != 'O')
 			{
-				board[1][1] = 'Y';
+				board[1][1] = 'O';
+				moves--;
 			}
 			else
 			{
@@ -318,9 +332,10 @@ void Player::makeAMove()
 			break;
 
 		case 2:
-			if (board[1][3] != 'X' && board[1][1] != 'Y')
+			if (board[1][3] != 'X' && board[1][3] != 'O')
 			{
-				board[1][3] = 'Y';
+				board[1][3] = 'O';
+				moves--;
 			}
 			else
 			{
@@ -331,9 +346,10 @@ void Player::makeAMove()
 			break;
 
 		case 3:
-			if (board[1][5] != 'X' && board[1][1] != 'Y')
+			if (board[1][5] != 'X' && board[1][5] != 'O')
 			{
-				board[1][5] = 'Y';
+				board[1][5] = 'O';
+				moves--;
 			}
 			else
 			{
@@ -344,9 +360,10 @@ void Player::makeAMove()
 			break;
 
 		case 4:
-			if (board[3][1] != 'X' && board[1][1] != 'Y')
+			if (board[3][1] != 'X' && board[3][1] != 'O')
 			{
-				board[3][1] = 'Y';
+				board[3][1] = 'O';
+				moves--;
 			}
 			else
 			{
@@ -357,9 +374,10 @@ void Player::makeAMove()
 			break;
 
 		case 5:
-			if (board[3][3] != 'X' && board[1][1] != 'Y')
+			if (board[3][3] != 'X' && board[3][3] != 'O')
 			{
-				board[3][3] = 'Y';
+				board[3][3] = 'O';
+				moves--;
 			}
 			else
 			{
@@ -369,9 +387,10 @@ void Player::makeAMove()
 
 			break;
 		case 6:
-			if (board[3][5] != 'X' && board[1][1] != 'Y')
+			if (board[3][5] != 'X' && board[3][5] != 'O')
 			{
-				board[3][5] = 'Y';
+				board[3][5] = 'O';
+				moves--;
 			}
 			else
 			{
@@ -381,9 +400,10 @@ void Player::makeAMove()
 			break;
 
 		case 7:
-			if (board[5][1] != 'X' && board[1][1] != 'Y')
+			if (board[5][1] != 'X' && board[5][1] != 'O')
 			{
-				board[5][1] = 'Y';
+				board[5][1] = 'O';
+				moves--;
 			}
 			else
 			{
@@ -394,22 +414,25 @@ void Player::makeAMove()
 			break;
 
 		case 8:
-			if (board[5][3] != 'X' && board[1][1] != 'Y')
+			if (board[5][3] != 'X' && board[5][3] != 'O')
 			{
-				board[5][3] = 'Y';
+				board[5][3] = 'O';
+				moves--;
 			}
 			else
 			{
 				cout << "Already full ! " << std::endl;
 				goto jump;
+
 			}
 
 			break;
 
 		case 9:
-			if (board[5][5] != 'X' && board[1][1] != 'Y')
+			if (board[5][5] != 'X' && board[5][5] != 'O')
 			{
-				board[5][5] = 'Y';
+				board[5][5] = 'O';
+				moves--;
 			}
 			else
 			{
@@ -421,6 +444,7 @@ void Player::makeAMove()
 
 		default:
 			cout << "Error, unknown command." << endl;
+			goto jump;
 			break;
 		}
 	}
@@ -429,21 +453,81 @@ void Player::makeAMove()
 	//thanks to a akhnos for telling me that i need to clear the screen and redraw the board.
 	system("cls");
 	Draw();
+	
 
-}
-/*
-void Player::checkWinCondition()
-{
-	if (g_player2Turn)
+	
+	if (checkWinCondition())
 	{
-		if (board[1][1] == 'X' && board[][] == 'X' && board[][] == 'X')
-		{
+		exit(3);
+	}
 
+	if (Tie())
+	{
+		cout << "It's a tie!." << endl;
+		exit(3);
+	}
+	
+}
+
+bool Player::checkWinCondition()
+{
+	using namespace std;
+
+	if (g_player1Turn)
+	{
+		if (board[1][1] == 'X' && board[1][3] == 'X' && board[1][5] == 'X' || 
+			board[3][1] == 'X' && board[3][3] == 'X' && board[3][5] == 'X' ||
+			board[5][1] == 'X' && board[5][3] == 'X' && board[5][5] == 'X' ||
+			board[1][1] == 'X' && board[3][1] == 'X' && board[5][1] == 'X' ||
+			board[1][3] == 'X' && board[3][3] == 'X' && board[5][3] == 'X' || 
+			board[1][5] == 'X' && board[3][5] == 'X' && board[5][5] == 'X' ||
+			board[1][1] == 'X' && board[3][3] == 'X' && board[5][5] == 'X' ||
+			board[1][5] == 'X' && board[3][3] == 'X' && board[5][1] == 'X'  )
+		{
+			cout << "Player 1 wins!." << endl;
+			return true;
+		}
+
+		else
+		{
+			return false;
 		}
 	}
 
-		
+	if (g_player2Turn)
+	{
+		if (board[1][1] == 'O' && board[1][3] == 'O' && board[1][5] == 'O' ||
+			board[3][1] == 'O' && board[3][3] == 'O' && board[3][5] == 'O' ||
+			board[5][1] == 'O' && board[5][3] == 'O' && board[5][5] == 'O' ||
+			board[1][1] == 'O' && board[3][1] == 'O' && board[5][1] == 'O' ||
+			board[1][3] == 'O' && board[3][3] == 'O' && board[5][3] == 'O' ||
+			board[1][5] == 'O' && board[3][5] == 'O' && board[5][5] == 'O' ||
+			board[1][1] == 'O' && board[3][3] == 'O' && board[5][5] == 'O' ||
+			board[1][5] == 'O' && board[3][3] == 'O' && board[5][1] == 'O')
+		{
+			cout << "Player 2 wins!." << endl;
+			return true;
+		}
+
+		else
+		{
+			return false;
+		}
+	}
+
+	
 
 	
 }
-*/
+
+bool Tie()
+{
+	if (moves == 0)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}

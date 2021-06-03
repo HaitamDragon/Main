@@ -5,7 +5,7 @@
 
 
 void Draw();
-void Tie();
+bool Tie();
 
 class Player
 {
@@ -16,6 +16,6 @@ public:
 	void surrender();
 	void playerTurn();
 	void Choices();
-	void checkWinCondition();
+	bool checkWinCondition();
 
 };

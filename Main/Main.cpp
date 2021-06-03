@@ -14,7 +14,14 @@ int main()
 
     while (true)
     {
+        /*
+        if (pl1.checkWinCondition())
+        {
+            break;
+        }
+        */
         
+
         pl1.playerTurn();
 
         
