@@ -485,6 +485,7 @@ bool Player::checkWinCondition()
 			board[1][5] == 'X' && board[3][3] == 'X' && board[5][1] == 'X'  )
 		{
 			cout << "Player 1 wins!." << endl;
+			system("pause");
 			return true;
 		}
 
@@ -506,6 +507,7 @@ bool Player::checkWinCondition()
 			board[1][5] == 'O' && board[3][3] == 'O' && board[5][1] == 'O')
 		{
 			cout << "Player 2 wins!." << endl;
+			system("pause");
 			return true;
 		}
 
@@ -516,7 +518,7 @@ bool Player::checkWinCondition()
 	}
 
 	
-
+	
 	
 }
 
