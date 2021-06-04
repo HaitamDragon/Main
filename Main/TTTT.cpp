@@ -527,6 +527,7 @@ bool Tie()
 {
 	if (moves == 0)
 	{
+		system("pause");
 		return true;
 	}
 	else
