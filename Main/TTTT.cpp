@@ -450,7 +450,7 @@ void Player::makeAMove()
 	}
 
 
-	//thanks to a akhnos for telling me that i need to clear the screen and redraw the board.
+	//thanks to akhs001 for telling me that i need to clear the screen and redraw the board.
 	system("cls");
 	Draw();
 	
