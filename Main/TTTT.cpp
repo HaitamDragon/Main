@@ -485,6 +485,7 @@ bool Player::checkWinCondition()
 			board[1][5] == 'X' && board[3][3] == 'X' && board[5][1] == 'X'  )
 		{
 			cout << "Player 1 wins!." << endl;
+			//thanks to amohayaee for telling me to add system("pause") so the user can see who won
 			system("pause");
 			return true;
 		}
