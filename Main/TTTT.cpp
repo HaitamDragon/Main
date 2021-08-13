@@ -38,8 +38,7 @@ void Draw()
 			{
 				cout << '*';
 			}
-			//thanks to hostilenode for providing a simple fix for the X and Y output
-
+			
 			else if (board[i][j] == 'X')
 			{
 				cout << 'X';
@@ -171,7 +170,7 @@ void Player::makeAMove()
 
 	using namespace std;
 
-	//yes i know this is a bad practice but for now i am using this as a temporary solution to reprompt the user.
+	//yes i know this is a bad practice (maybe ?), but for now i am using this as a temporary solution to reprompt the user.
 	jump:
 		cout << "Where do you want to place it? (choose either : 1, 2, 3, 4, 5, 6, 7, 8, 9)" << endl;
 
@@ -450,7 +449,6 @@ void Player::makeAMove()
 	}
 
 
-	//thanks to akhs001 for telling me that i need to clear the screen and redraw the board.
 	system("cls");
 	Draw();
 	
@@ -485,7 +483,6 @@ bool Player::checkWinCondition()
 			board[1][5] == 'X' && board[3][3] == 'X' && board[5][1] == 'X'  )
 		{
 			cout << "Player 1 wins!." << endl;
-			//thanks to amohayaee for telling me to add system("pause") so the user can see who won
 			system("pause");
 			return true;
 		}
